@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :building do
-    street "Hanover Street"
+    street "1160 Hanover Street"
     city "Hanover"
     state "Massachusetts"
     postal_code "02339"
