@@ -1,7 +1,7 @@
 <%= simple_form_for @building do |f| %>
   <%= f.input :street %>
   <%= f.input :city %>
-  <%= f.input :state %>
+  <%= f.input :state, as: :select, collection: controller.class::US_STATES %>
   <%= f.input :postal_code %>
   <%= f.input :description, as: :text%>
   <%= f.button :submit %>
