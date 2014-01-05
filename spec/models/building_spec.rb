@@ -18,4 +18,8 @@ describe Building do
     it {should have_valid(:postal_code).when('02339', "12345")}
     it {should_not have_valid(:postal_code).when('', nil, 'a', '123456', '123')}
     end
+
+    it {should belong_to :user}
+    it {should have_many :ownerships}
+    it {should have_many(:owners).through(:ownerships)}
 end

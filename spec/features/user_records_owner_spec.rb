@@ -6,9 +6,7 @@ feature 'user records owners', %Q{
   So that I can keep track of our relationships with owners
 } do
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:owner) { FactoryGirl.create(:owner) }
-  let(:building) { FactoryGirl.create(:building) }
+  let(:owner) { FactoryGirl.build(:owner) }
   # I must specify a first name, last name, and email address
   # I can optionally specify a company name
   # If I do not specify the required information, I am presented with errors
@@ -17,10 +15,10 @@ feature 'user records owners', %Q{
   scenario 'create a valid owner and redirect so user can create another owner' do
     visit new_owner_path
 
-    fill_in 'First name', with: 'Icelle'
-    fill_in 'Last name', with: 'Ku'
-    fill_in 'Email', with: 'icelleku@gmail.com'
-    fill_in 'Company name', with: 'Launch Academy'
+    fill_in 'First name', with: owner.first_name
+    fill_in 'Last name', with: owner.last_name
+    fill_in 'Email', with: owner.email
+    fill_in 'Company name', with: owner.company_name
     click_button 'Create Owner'
 
     expect(page).to have_content('Owner was successfully recorded.')
