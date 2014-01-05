@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  include ApplicationHelper
 
   def new
     @building = Building.new
