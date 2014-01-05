@@ -17,5 +17,5 @@ describe Building do
     it {should_not have_valid(:state).when('Manila', 'Random State Elsewhere')}
     it {should have_valid(:postal_code).when('02339', "12345")}
     it {should_not have_valid(:postal_code).when('', nil, 'a', '123456', '123')}
-  end
+    end
 end
