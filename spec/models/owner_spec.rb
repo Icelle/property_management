@@ -14,6 +14,7 @@ describe Owner do
     it {should_not have_valid(:last_name).when('', nil)}
     it {should have_valid(:email).when('icelleku@gmail.com')}
     it {should_not have_valid(:email).when('', nil)}
+    it {should_not have_valid(:email).when('icelleku', 1223, '1234')}
     it {should have_valid(:company_name).when('Launch Academy', '', nil)}
   end
 end
