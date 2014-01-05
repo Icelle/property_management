@@ -8,5 +8,6 @@ class Building < ActiveRecord::Base
   belongs_to :user,
     inverse_of: :buildings
 
-  has_many :owners
+  has_many :ownerships
+  has_many :owners, through: :ownerships
 end
