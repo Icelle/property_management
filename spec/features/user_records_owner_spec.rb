@@ -17,10 +17,10 @@ feature 'user records owners', %Q{
   scenario 'create a valid owner and redirect so user can create another owner' do
     visit new_owner_path
 
-    fill_in 'First Name', with: 'Icelle'
-    fill_in 'Last Name', with: 'Ku'
+    fill_in 'First name', with: 'Icelle'
+    fill_in 'Last name', with: 'Ku'
     fill_in 'Email', with: 'icelleku@gmail.com'
-    fill_in 'Company Name', with: 'Launch Academy'
+    fill_in 'Company name', with: 'Launch Academy'
     click_button 'Create Owner'
 
     expect(page).to have_content('Owner was successfully recorded.')
@@ -30,8 +30,7 @@ feature 'user records owners', %Q{
 
   scenario 'create an invalid owner' do
       visit new_owner_path
-      click_button 'Create Building'
+      click_button 'Create Owner'
       expect(page).to have_content("can't be blank")
   end
-
 end
