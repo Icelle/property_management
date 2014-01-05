@@ -1,10 +1,15 @@
 class OwnersController < ApplicationController
+  before_action :set_owner, only:[:show, :destroy]
+
   def new
     @owner = Owner.new
   end
 
   def show
-    @owner = Owner.find(params[:id])
+  end
+
+  def index
+    @owners = Owner.all
   end
 
   def create
@@ -16,6 +21,22 @@ class OwnersController < ApplicationController
         format.html {render action: 'new'}
       end
     end
+  end
+
+  def destroy
+    @owner.destroy
+    respond_to do |format|
+      if @owner.destroy
+        format.html{redirect_to owners_path, notice: "Owner was successfully deleted."}
+      else
+        format.html {redirect_to owners_path, error: "Owner was not deleted."}
+      end
+    end
+  end
+
+private
+  def set_owner
+    @owner = Owner.find(params[:id])
   end
 
   def owner_params
